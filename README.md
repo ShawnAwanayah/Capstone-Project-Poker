@@ -8,13 +8,13 @@ Each game the order in which the player's take turns is shuffled.
 
 
 The game will show the original deck which is two cards, every card is in the format (suit,value) with multiple cards being [(suit1,value1),(suit2,value2)...], and each turn will give you the option to see your cards,
-raise, call the last bet or fold; unless you are 1st to play in which the game takes £5 from you and adds to the pot then got to the next person.
+raise, call the last bet or fold; unless you are 1st to play in which the game takes £5 from you and adds to the pot then goes to the next person.
 
 
-If you choose to "see cards", then it will show you your cards and the the same 4 options will come up again.
+If you choose to "see cards", then it will show you your cards and the same 4 options will come up again.
 
 
-If you choose to "call", then it will take whatever the last bet was from your money and add it to the pot.
+If you choose to "call", then it will take the same amount of the last bet from your money and add it to the pot.
 
 
 If you choose to "raise", then it will ask you how much you want to raise by and this will take away the last bet + raise from your money.
@@ -23,7 +23,7 @@ If you choose to "raise", then it will ask you how much you want to raise by and
 If you choose to fold then it will remove you from the game.
 
 
-The other 4 players will randomly call or raise (they will always raise by 10 if they do) however, they do not have the option to fold.
+The other 3 players will randomly call or raise (they will always raise by 10 if they do) however, they do not have the option to fold.
 
 
 The amount of money in the pot and the last bet is printed after everyone's turn.
