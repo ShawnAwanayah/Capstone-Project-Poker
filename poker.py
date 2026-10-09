@@ -61,16 +61,16 @@ while True:
                 player_card2 = random.choice(card_deck)
                 player["cards"].append(player_card2)
                 card_deck.remove(player_card2)
-            print(person)
 
         last_bet = 0
         while len(deck) < 5:
-            print("number of folded players:", len(folded_players))
             for person in players:
                 if person in folded_players:
                     continue
                 print(f"last bet: {last_bet}")
                 for name, player in person.items():
+                    if player["money"] <= 0:
+                        continue
                     print("Pot:", pot)
                     if pot == 0:
                         player["money"] -= 5
@@ -80,15 +80,24 @@ while True:
                     elif name != "user":
                         action = random.choice(pos_actions)
                         if action == "raise":
-                            player["money"] -= (10 + last_bet)
-                            last_bet += 10
+                            if (10 + last_bet) > player["money"]:
+                                player["money"] -= player["money"]
+                                last_bet += player["money"]
+                            else:
+                                last_bet += 10
+                                player["money"] -= last_bet
                             pot += last_bet
                         elif action == "call":
-                            player["money"] -= last_bet
+                            if last_bet >= player["money"]:
+                                player["money"] -= player["money"]
+                                last_bet = player["money"]
+                            else:
+                                player["money"] -= last_bet
                             pot += last_bet
 
                     elif name == "user":
                         print("Pot:", pot)
+                        print(f"User's Money: {player["money"]}")
                         user_action = input(
                             "Do you want to (see cards),(raise), (call) or (fold)? ")
                         while user_action == "see cards":
@@ -98,11 +107,19 @@ while True:
                         if user_action == "raise":
                             raise_bet = float(
                                 input("How much do you want to raise by? "))
-                            player["money"] -= (last_bet + raise_bet)
-                            last_bet += raise_bet
+                            if (last_bet + raise_bet) > player["money"]:
+                                player["money"] -= player["money"]
+                                last_bet += player["money"]
+                            else:
+                                last_bet += raise_bet
+                                player["money"] -= last_bet
                             pot += last_bet
                         elif user_action == "call":
-                            player["money"] -= (last_bet)
+                            if last_bet > player["money"]:
+                                last_bet = player["money"]
+                                player["money"] -= last_bet
+                            else:
+                                player["money"] -= (last_bet)
                             pot += last_bet
                         elif user_action == "fold":
                             folded_players.append(person)
@@ -150,8 +167,7 @@ while True:
                 playing_cards = list(playing_cards)
                 for playing_card in playing_cards:
                     if playing_cards.count(playing_card) == 4:
-                        if winners.get(person) == None or winners.get(person) > 2:
-                            winners[person] = 2
+                        winners[person] = 2
 
                 full_house = [playing_cards.count(
                     i) > 1 for i in playing_cards]
