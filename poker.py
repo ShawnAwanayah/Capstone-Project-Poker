@@ -180,7 +180,7 @@ while True:
                         winners[person] = 5
 
                 for playing_card in playing_cards:
-                    if playing_cards.count(playing_card) >= 3:
+                    if playing_cards.count(playing_card) == 3:
                         if winners.get(person) == None or winners.get(person) > 6:
                             winners[person] = 6
 
@@ -190,7 +190,7 @@ while True:
                         winners[person] = 7
 
                 for playing_card in playing_cards:
-                    if playing_cards.count(playing_card) >= 2:
+                    if playing_cards.count(playing_card) == 2:
                         if winners.get(person) == None or winners.get(person) > 8:
                             winners[person] = 8
 
