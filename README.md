@@ -4,7 +4,7 @@ Program to simulate a game of poker.
 Everytime a new game runs, the program will ask you if you want to play.
 If you have played 1 or more games, then it will show you your win percentage along with your total number of wins and games played.
 The game is played with you (you are called "user") and 3 other players all starting with £100.
-Each game the order in which the player's take turns is shuffled.
+Each game the order in which the players take turns is shuffled.
 
 
 The game will show the original deck which is two cards, every card is in the format (suit,value) with multiple cards being [(suit1,value1),(suit2,value2)...], and each turn will give you the option to see your cards,
