@@ -29,7 +29,7 @@ The other 3 players will randomly call or raise (they will always raise by 10 if
 The amount of money in the pot and the last bet is printed after everyone's turn.
 
 
-Turns will keep happening until there are 5 cards in the deck, when this happens it will check everyone's hand to see who has the best
+Turns will keep happening until there are 5 cards in the deck, when this happens it will check everyone's hand to see who has the best;
 see https://boardgamegeek.com/boardgame/1115/poker for the best possible hands (five of a kind is excluded and the royal flush is not differentiated from a straight flush)
 
 Afterwards it will print the winner/winners, what hand they won with and how much of the pot they won.
